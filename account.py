@@ -1,12 +1,15 @@
+import uuid
 class Account:
-    def __init__(self,userId,accountName, accountId, balance):
-        self.userId= userId
-        self.accountName= accountName
-        self.accountId= accountId
-        self.balance= balance
+    def __init__(self, userId,accountName,  balance):
+        self.userId = userId
+        self.accountName = accountName
+        self.accountId = uuid.uuid4() 
+        self.balance = balance
 
-action= input("What would you like to do?")
+    def printAccountInfo(self):
+        print(f'-----------------{self.accountName}_{self.accountId}-------------------------')
+        print(f'balance: {self.balance}')
 
-if str(action) == "user ID":
-    print()     
-
+#transfer(Account,amount) 
+#addFunds(amount)
+#removeFunds(amount)
