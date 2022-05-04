@@ -23,9 +23,3 @@ class Account:
     def removeFunds(self,amount):
         self.balance= self.balance - amount
         self.printAccountInfo()
-
-
-
-#transfer(Account,amount) 
-#addFunds(amount)
-#removeFunds(amount)

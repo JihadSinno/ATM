@@ -2,13 +2,10 @@ from account import Account
 from typing import List
 import uuid
 
-
-
-
 class User:
-    def __init__(self, accountList: List[Account] = []):
+    def __init__(self):
         self.userID = uuid.uuid4()
-        self.accountList = accountList
+        self.accountList = [] 
     
     def addAccount(self, accountToAdd: Account):
         self.accountList.append(accountToAdd)
@@ -18,7 +15,7 @@ class User:
         for account in self.accountList:
             account.printAccountInfo()
     
-    def newAccount(self,accountName,balance):
+    def createAndAddAccount(self,accountName,balance):
         self.accountList.append(Account(self.userID, accountName, balance))
 
     def removeAccount(self, accountID):
@@ -26,7 +23,8 @@ class User:
         for account in self.accountList:
             if accountID == account.accountId:
                 index= self.accountList.index(account)
-        del self.accountList[index]
+        if index != -1:
+            del self.accountList[index]
         
 
 #User addAccount(self,accountName,balance)
