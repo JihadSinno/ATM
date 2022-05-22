@@ -1,13 +1,19 @@
 from account import Account
 from typing import List
 import uuid
+from logging_config import LOGGING_CONFIG
+import logging
+from logging.config import dictConfig
 
+dictConfig(LOGGING_CONFIG)
 class User:
+    log = logging.getLogger(__name__) # static variable 
     def __init__(self):
         self.userID = uuid.uuid4()
         self.accountList = [] 
     
     def addAccount(self, accountToAdd: Account):
+        User.log.debug(f'User {self.userID} added new account {accountToAdd.accountId}')
         self.accountList.append(accountToAdd)
 
     def printUserInfo(self):
@@ -26,6 +32,5 @@ class User:
         if index != -1:
             del self.accountList[index]
         
-
 #User addAccount(self,accountName,balance)
 #User removeAccount(self,accountID)

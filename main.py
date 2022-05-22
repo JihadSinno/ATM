@@ -1,6 +1,5 @@
-a=5
-try: 
-    b=int(input())
-    a=a/b
-except:
-    print("wrong")    
+import imp
+from account import Account
+from user import User
+u1 = User()
+u1.addAccount(Account(u1.userID,"savings",2000))
